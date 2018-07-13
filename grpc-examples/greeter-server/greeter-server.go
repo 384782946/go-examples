@@ -30,7 +30,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	s := grpc.NewServer()
+	s := grpc.NewServer(grpc.UnaryInterceptor(UnaryInterceptor(Recovery, Logging)))
 	pb.RegisterGreeterServer(s, &server{})
 
 	reflection.Register(s)

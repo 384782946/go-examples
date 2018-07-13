@@ -1,0 +1,10 @@
+package: github.com/384782946/go-examples/grpc-examples
+import:
+- package: github.com/golang/protobuf
+  version: v1.1.0
+  subpackages:
+  - proto
+- package: golang.org/x/net/context
+- package: google.golang.org/grpc
+  subpackages:
+  - reflection

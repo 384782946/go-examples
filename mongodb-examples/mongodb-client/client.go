@@ -16,7 +16,7 @@ import (
 
 const (
 	//mongodb服务器地址
-	ADDRESS string = "localhost:32768"
+	ADDRESS string = "localhost:27017"
 )
 
 //
