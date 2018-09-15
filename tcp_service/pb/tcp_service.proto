@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.im.rpc";
+option java_outer_classname = "ImRpcProto";
+
+package pb_tcp;
+
+enum RequestType {
+    REQ_HEART_BEAT = 0;
+    REQ_SEND_MSG = 1;
+}
+
+enum ResponseType{
+    RES_SEND_MSG = 0;
+}
+
+message Request {
+    RequestType  type = 1; //请求类型
+    string datas = 2; //json格式的请求参数
+}
+
+message ReqSendMsg{ //发送消息
+    
+}
+
+message Response {
+    ResponseType type = 1; //给哪类请求的反馈
+    int32 code = 2; //相应状态
+    string datas = 3; //json格式的数据
+}
+
+service Command {
+    rpc NotifyClient (Request) returns (Response);
+}
